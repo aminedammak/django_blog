@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block content %}
+        <h4>{{object.title}} <span>{{object.date_posted|date:"F d, Y"}}</span></h4>
+        <p>{{ object.content }}</p>
+        <label>Author</label>  {{object.author.username}}
+        <br /><br />
+
+{% endblock %}
