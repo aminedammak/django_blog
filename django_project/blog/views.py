@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Post
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 posts = Post.objects.all()
 
@@ -16,6 +16,9 @@ class PostsListView(ListView):
     template_name = 'index.html'
     ordering = ("-date_posted")
 
+
+class PostDetailView(DetailView):
+    model = Post
 
 def about(request):
     return HttpResponse("<h2>About</h2>")
