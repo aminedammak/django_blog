@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <h1>Are you sure you want to delete this post?</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <p>
+            <button class="btn btn-danger" type="submit">Delete</button>
+        </p>
+    </form>
+    <div>
+        <a class="btn btn-info" href="{% url 'blog-home' %}">Cancel</a>
+    </div>
+
+{% endblock %}
