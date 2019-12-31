@@ -1,12 +1,20 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Post
+from django.views.generic import ListView
 
 posts = Post.objects.all()
 
 
 def home(request):
     return render(request, 'index.html', {"posts": posts})
+
+
+class PostsListView(ListView):
+    model = Post
+    context_object_name = 'posts'
+    template_name = 'index.html'
+    ordering = ("-date_posted")
 
 
 def about(request):
