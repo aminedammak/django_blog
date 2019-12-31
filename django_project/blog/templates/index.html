@@ -8,4 +8,9 @@
         <br /><br />
 
     {% endfor %}
+    {% if user.is_authenticated %}
+            <div>
+                <a class="btn btn-primary" href="{% url 'post-create' %}">Create new post</a>
+            </div>
+    {% endif %}
 {% endblock %}
