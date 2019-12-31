@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Post
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, DeleteView
 
 posts = Post.objects.all()
 
@@ -19,6 +19,11 @@ class PostsListView(ListView):
 
 class PostDetailView(DetailView):
     model = Post
+
+
+class PostDeleteView(DeleteView):
+    model = Post
+    success_url = "/"
 
 def about(request):
     return HttpResponse("<h2>About</h2>")
